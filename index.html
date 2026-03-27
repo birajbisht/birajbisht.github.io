@@ -1,164 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biraj Bisht</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    :root {
+      --ink: #1a1814;
+      --ink-light: #5a564f;
+      --ink-faint: #9a9590;
+      --paper: #f7f4ef;
+      --rule: #d4cfc7;
+      --accent: #8b3a2a;
+      --accent-light: #c4614d;
+    }
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    html { scroll-behavior: smooth; }
 
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.7;
+    }
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-    <!-- Theme CSS -->
-    <link href="css/grayscale.min.css" rel="stylesheet">
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+    }
+    nav .page {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .nav-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    /* Hero */
+    header {
+      padding: 9rem 0 5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.1s forwards;
+    }
+    h1 {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s forwards;
+    }
+    .hero-email {
+      display: block;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink-light);
+      margin-top: 0.4rem;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--ink-light);
+      max-width: 560px;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.35s forwards;
+    }
+    .hero-links {
+      margin-top: 2.2rem;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.45s forwards;
+    }
+    .hero-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-links a:hover { color: var(--accent); border-color: var(--accent-light); }
 
+    /* Sections */
+    section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    section.visible { opacity: 1; transform: none; }
+
+    h2 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 2.2rem;
+    }
+
+    /* About */
+    .about-text p { color: var(--ink-light); }
+    .about-text a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); }
+    .about-text a:hover { color: var(--accent-light); }
+
+    /* Research */
+    .paper { padding: 1.6rem 0; border-top: 1px solid var(--rule); }
+    .paper:first-of-type { border-top: none; padding-top: 0; }
+    .paper-title { font-size: 1.05rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.35rem; }
+    .paper-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .paper-meta .venue { color: var(--accent); }
+    .paper-abstract { font-size: 0.92rem; color: var(--ink-light); line-height: 1.7; }
+    .paper-links { margin-top: 0.6rem; display: flex; gap: 1rem; }
+    .paper-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .paper-links a:hover { color: var(--accent); border-color: var(--accent-light); }
+
+    /* CV */
+    .cv-row {
+      display: flex;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .cv-row:first-of-type { border-top: none; padding-top: 0; }
+    .cv-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--ink-faint);
+      min-width: 4.5rem;
+      flex-shrink: 0;
+    }
+    .cv-content { font-size: 0.98rem; color: var(--ink-light); }
+    .cv-content strong { color: var(--ink); font-weight: 500; }
+
+    /* Contact */
+    .contact-block { color: var(--ink-light); }
+    .contact-block a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); }
+    .contact-block a:hover { color: var(--accent-light); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+    .contact-item-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.3rem;
+    }
+
+    /* Footer */
+    footer { padding: 2.5rem 0; text-align: center; }
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { gap: 1.2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .cv-row { flex-direction: column; gap: 0.2rem; }
+    }
+  </style>
 </head>
+<body>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <nav>
+    <div class="page">
+      <a class="nav-name" href="#top">Biraj Bisht</a>
+      <ul class="nav-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> <span class="light">Biraj</span> Bisht
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Projects</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Work In Progress</h1>
-                        <p class="intro-text">Welcome to my site, I'm still working on the content. Please check back later.
-                            <br></p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="page">
+    <header id="top">
+      <p class="eyebrow">Doctoral Candidate · University of California, Irvine</p>
+      <h1>Biraj Bisht<span class="hero-email">biraj.bisht@uci.edu</span></h1>
+      <p class="hero-desc">
+        I am a PhD candidate in the School of Education at the University of California, Irvine.
+        My research examines how policies shape student learning, engagement, and opportunity in
+        K–12 schools. Using causal inference methods, my current work focuses on culturally
+        relevant curricula and high-impact tutoring programs.
+      </p>
+      <div class="hero-links">
+        <a href="https://linkedin.com/in/birajbisht" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">CV (PDF)</a>
+      </div>
     </header>
+  </div>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <!-- <h2>About Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p> -->
-            </div>
+  <div class="page">
+    <section id="research">
+      <h2>Research</h2>
+
+      <div class="paper">
+        <div class="paper-title">The Effects of Ethnic Studies on Student Outcomes: Evidence from a Large Urban District</div>
+        <div class="paper-meta">
+          <span class="venue">American Educational Research Journal</span> &nbsp;·&nbsp; Accepted
         </div>
+        <div class="paper-abstract">
+          Examines districtwide academic effects of Ethnic Studies expansion in LAUSD using
+          administrative data, leveraging staggered course adoption to identify causal effects
+          on GPA, attendance, and graduation.
+        </div>
+        <div class="paper-links">
+          <a href="#">Abstract</a>
+          <a href="#">Paper</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">Same-Race Teacher–Student Matching in Ethnic Studies Courses</div>
+        <div class="paper-meta">Working Paper &nbsp;·&nbsp; 2025</div>
+        <div class="paper-abstract">
+          Estimates the effect of demographic congruence between teachers and students in
+          Ethnic Studies classrooms using synthetic difference-in-differences and teacher
+          fixed effects to isolate matching from teacher quality.
+        </div>
+        <div class="paper-links">
+          <a href="#">Abstract</a>
+          <a href="#">Draft</a>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">What Do Ethnic Studies Syllabi Say? An NLP Analysis</div>
+        <div class="paper-meta">Work in Progress &nbsp;·&nbsp; 2026</div>
+        <div class="paper-abstract">
+          Uses natural language processing to characterize the content of Ethnic Studies
+          syllabi across LAUSD, exploring variation in pedagogical approach and curricular emphasis.
+        </div>
+        <div class="paper-links">
+          <a href="#">Abstract</a>
+        </div>
+      </div>
+
     </section>
+  </div>
 
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </div>
+  <div class="page">
+    <section id="cv">
+      <h2>Background</h2>
+      <div class="cv-row">
+        <div class="cv-year">2022–</div>
+        <div class="cv-content"><strong>Ph.D. in Education</strong>, University of California, Irvine<br>Advisor: Emily Penner</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year">2022</div>
+        <div class="cv-content"><strong>M.A. in Education</strong>, University of California, Irvine</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year">Fields</div>
+        <div class="cv-content">Education policy, causal inference, Ethnic Studies, teacher labor markets</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year">Methods</div>
+        <div class="cv-content">Difference-in-differences, synthetic DiD, event studies, NLP · Stata, Python, R</div>
+      </div>
+      <div class="cv-row">
+        <div class="cv-year">Data</div>
+        <div class="cv-content">LAUSD administrative records (enrollment, grades, attendance, course-taking)</div>
+      </div>
     </section>
+  </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Me</h2>
-                <p>Feel free to email me with feedback, or just say hello!</p>
-                <p><a href="mailto:biraj.bisht@gmail.com">biraj.bisht@gmail.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/birajbisht" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/birajbisht" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com/in/birajbisht" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">LinkedIn</span></a>
-                    </li>
-                </ul>
-            </div>
+  <div class="page">
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-block">
+        <p>I welcome questions about my research or potential collaborations.</p>
+        <div class="contact-grid">
+          <div>
+            <div class="contact-item-label">Email</div>
+            <a href="mailto:biraj.bisht@uci.edu">biraj.bisht@uci.edu</a>
+          </div>
+          <div>
+            <div class="contact-item-label">Office</div>
+            School of Education<br>University of California, Irvine
+          </div>
+          <div>
+            <div class="contact-item-label">GitHub</div>
+            <a href="https://github.com/birajbisht" target="_blank">github.com/birajbisht</a>
+          </div>
+          <div>
+            <div class="contact-item-label">LinkedIn</div>
+            <a href="https://linkedin.com/in/birajbisht" target="_blank">linkedin.com/in/birajbisht</a>
+          </div>
         </div>
+      </div>
     </section>
+  </div>
 
-    <!-- Map Section -->
-    <div id="map"></div>
+  <footer>
+    <div class="page">
+      <p>Biraj Bisht &nbsp;·&nbsp; UC Irvine School of Education &nbsp;·&nbsp; Updated 2026</p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2016</p>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
-
 </html>
