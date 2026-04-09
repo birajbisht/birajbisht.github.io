@@ -175,7 +175,15 @@
       margin-bottom: 0.5rem;
     }
     .paper-meta .venue { color: var(--accent); }
-    .paper-abstract { font-size: 1rem; color: var(--ink-light); line-height: 1.7; }
+    .abstract-toggle {
+      background: none; border: none; padding: 0; padding-bottom: 1px;
+      font-size: 0.9rem; font-family: inherit; color: var(--ink-light);
+      cursor: pointer; border-bottom: 1px solid var(--rule);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .abstract-toggle:hover { color: var(--accent); border-color: var(--accent-light); }
+    .abstract-panel { display: none; font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-top: 0.75rem; }
+    .abstract-panel.show { display: block; }
     .paper-links { margin-top: 0.6rem; display: flex; gap: 1rem; }
     .paper-links a {
       font-size: 0.9rem;
@@ -290,16 +298,12 @@
       <div class="paper">
         <div class="paper-title"><a href="https://doi.org/10.3102/00028312261426338" target="_blank">Cultural Relevance at Scale: The Effects of an Ethnic Studies Expansion on Academic Outcomes</a></div>
         <div class="paper-meta">
-          <span class="venue">American Educational Research Journal</span> &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Bisht, Bonilla, Kim &amp; Penner &nbsp;·&nbsp; Accepted
-        </div>
-        <div class="paper-abstract">
-          Examines the districtwide effects of Ethnic Studies enrollment on student achievement
-          using administrative data. Results indicate significant improvements in GPA and course
-          completion, with the largest gains among Black, Latinx, and academically vulnerable students.
-        </div>
+          <span class="venue">American Educational Research Journal</span> &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Bisht, Bonilla, Kim &amp; Penner        </div>
         <div class="paper-links">
+          <button class="abstract-toggle">▸ Abstract</button>
           <a href="https://edworkingpapers.com/ai26-1446" target="_blank">EdWorkingPaper</a>
         </div>
+        <div class="abstract-panel">Ethnic studies is a culturally relevant curriculum designed to address the instructional needs of an increasingly diverse student population. However, evidence regarding the effectiveness of this curriculum at scale remains limited. This study evaluated the impact of districtwide implementation using a student-level difference-in-differences design with two-way fixed effects. We found that enrollment increased overall grade-point average by 0.17 points (0.24 SD), with the largest gains observed in math and science, and reduced course failure by 5.6 percentage points (0.14 SD). These benefits extended to all student groups, with stronger effects among academically vulnerable, male, Black and Latinx students and those with individualized education plans. Our findings suggest that well-implemented ethnic studies can be scaled effectively and can potentially reduce disparities in student outcomes.</div>
       </div>
 
       <div class="paper">
@@ -307,19 +311,14 @@
         <div class="paper-meta">
           <span class="venue">Educational Researcher</span> &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Robinson, Bisht &amp; Loeb
         </div>
-        <div class="paper-abstract">
-          Examines low take-up of on-demand tutoring in a large district, where only 19% of
-          students accessed the platform voluntarily. A randomized controlled trial (N = 4,763)
-          finds that behaviorally informed messages to parents and students increased usage by 46%,
-          but results suggest opt-in resources may widen rather than close achievement gaps
-          without proactive outreach.
-        </div>
         <div class="paper-links">
+          <button class="abstract-toggle">▸ Abstract</button>
           <a href="https://edworkingpapers.com/ai22-654" target="_blank">EdWorkingPaper</a>
           <a href="https://hechingerreport.org/proof-points-many-schools-are-buying-on-demand-tutoring-but-a-study-finds-that-few-students-are-using-it/" target="_blank">Hechinger Report</a>
           <a href="https://www.brookings.edu/articles/the-good-and-bad-of-virtual-on-demand-tutoring/" target="_blank">Brookings</a>
           <a href="https://www.edweek.org/leadership/scaling-up-intensive-tutoring-4-studies-to-know/2022/09" target="_blank">Education Week</a>
         </div>
+        <div class="abstract-panel">Billions of dollars are invested in opt-in educational resources to support struggling students. Yet there is no guarantee these students will use these resources. We report results from a school system's implementation of on-demand tutoring. The take-up was low. At baseline, only 19% of students ever accessed the platform, and low-performing students were even less likely to log in. We conducted a randomized controlled trial (N = 4,763) testing behaviorally informed messages directed at students and/or their parents to increase participation. Communications to students alone had no impact, whereas those to parents and students together increased usage by 46%. We found suggestive evidence that receiving these communications led to a four-percentage point decrease in course failures. Nonetheless, take-up remained low, highlighting that opt-in resources may increase—instead of reduce—inequality. Without targeted outreach, opt-in educational resources are unlikely to reach many students who could benefit.</div>
       </div>
 
       <div class="paper">
@@ -327,16 +326,13 @@
         <div class="paper-meta">
           <span class="venue">Annenberg Institute EdWorkingPaper</span> &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; Bisht, LeClair, Loeb &amp; Sun
         </div>
-        <div class="paper-abstract">
-          Documents national trends in paraeducator employment, showing rapid growth and increasing
-          diversity in this workforce while highlighting a persistent lack of formal training,
-          career pathways, and professional supports.
-        </div>
         <div class="paper-links">
+          <button class="abstract-toggle">▸ Abstract</button>
           <a href="https://www.future-ed.org/paraeducators-growth-diversity-and-a-dearth-of-professional-supports/" target="_blank">FutureEd</a>
           <a href="https://www.newamerica.org/education-policy/briefs/exploring-paraprofessional-requirements-across-the-50-states-and-dc/" target="_blank">New America</a>
           <a href="https://www.edweek.org/leadership/paraprofessionals-as-the-backbones-of-the-classroom-they-get-low-pay-little-support/2022/06" target="_blank">Education Week</a>
         </div>
+        <div class="abstract-panel">Paraeducators perform multiple roles in U.S. classrooms, including among others preparing classroom activities, working with students individually and in small groups, supporting individualized programming for students with disabilities, managing classroom behavior, and engaging with parents and communities. Yet, little research provides insights into this key group of educators. This study combines an analysis of national administrative data to describe the paraeducator labor market with a systematic review of collective bargaining agreements and other job-defining documents in ten case-study districts. We find a large and expanding labor market of paraeducators, far more diverse along ethnic and racial lines than certified teachers but with far lower wages, fewer performance incentives, less professional development, and fewer opportunities for advancement within the profession.</div>
       </div>
 
     </section>
@@ -393,6 +389,16 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script>
+    document.querySelectorAll('.abstract-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var panel = this.closest('.paper').querySelector('.abstract-panel');
+        var expanded = panel.classList.toggle('show');
+        this.textContent = expanded ? '▾ Abstract' : '▸ Abstract';
+      });
+    });
   </script>
 
   <script data-goatcounter="https://birajbisht.goatcounter.com/count"
