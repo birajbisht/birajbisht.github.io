@@ -203,8 +203,22 @@
     .abstract-toggle:hover { color: var(--accent); border-color: var(--accent-light); }
     .abstract-panel { display: none; font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-top: 0.75rem; }
     .abstract-panel.show { display: block; }
-    .paper-links { margin-top: 0.6rem; display: flex; gap: 1rem; }
-    .paper-links a {
+    .paper-links { margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; }
+    .paper-media {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+    }
+    .paper-media-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .paper-links a, .paper-media a {
       font-size: 0.9rem;
       color: var(--ink-light);
       text-decoration: none;
@@ -212,7 +226,7 @@
       padding-bottom: 1px;
       transition: color 0.2s, border-color 0.2s;
     }
-    .paper-links a:hover { color: var(--accent); border-color: var(--accent-light); }
+    .paper-links a:hover, .paper-media a:hover { color: var(--accent); border-color: var(--accent-light); }
 
     /* CV */
     .cv-row {
@@ -335,6 +349,9 @@
           <button class="abstract-toggle">▸ Abstract</button>
           <a href="bisht_2026_ethnic_studies_aerj.pdf" target="_blank">PDF</a>
           <a href="https://edworkingpapers.com/ai26-1446" target="_blank">EdWorkingPaper</a>
+        </div>
+        <div class="paper-media">
+          <span class="paper-media-label">Media</span>
           <a href="https://www.sfchronicle.com/sf/article/san-francisco-ethnic-studies-study-22194680.php" target="_blank">SF Chronicle</a>
         </div>
         <div class="abstract-panel">Ethnic studies is a culturally relevant curriculum designed to address the instructional needs of an increasingly diverse student population. However, evidence regarding the effectiveness of this curriculum at scale remains limited. This study evaluated the impact of districtwide implementation using a student-level difference-in-differences design with two-way fixed effects. We found that enrollment increased overall grade-point average by 0.17 points (0.24 SD), with the largest gains observed in math and science, and reduced course failure by 5.6 percentage points (0.14 SD). These benefits extended to all student groups, with stronger effects among academically vulnerable, male, Black and Latinx students and those with individualized education plans. Our findings suggest that well-implemented ethnic studies can be scaled effectively and can potentially reduce disparities in student outcomes.</div>
@@ -349,6 +366,9 @@
           <button class="abstract-toggle">▸ Abstract</button>
           <a href="robinson_2025_opt_in_resources_er.pdf" target="_blank">PDF</a>
           <a href="https://edworkingpapers.com/ai22-654" target="_blank">EdWorkingPaper</a>
+        </div>
+        <div class="paper-media">
+          <span class="paper-media-label">Media</span>
           <a href="https://hechingerreport.org/proof-points-many-schools-are-buying-on-demand-tutoring-but-a-study-finds-that-few-students-are-using-it/" target="_blank">Hechinger Report</a>
           <a href="https://www.brookings.edu/articles/the-good-and-bad-of-virtual-on-demand-tutoring/" target="_blank">Brookings</a>
           <a href="https://www.edweek.org/leadership/scaling-up-intensive-tutoring-4-studies-to-know/2022/09" target="_blank">Education Week</a>
@@ -364,6 +384,9 @@
         <div class="paper-links">
           <button class="abstract-toggle">▸ Abstract</button>
           <a href="https://doi.org/10.26300/nk1z-c164" target="_blank">EdWorkingPaper</a>
+        </div>
+        <div class="paper-media">
+          <span class="paper-media-label">Media</span>
           <a href="https://www.future-ed.org/paraeducators-growth-diversity-and-a-dearth-of-professional-supports/" target="_blank">FutureEd</a>
           <a href="https://www.newamerica.org/education-policy/briefs/exploring-paraprofessional-requirements-across-the-50-states-and-dc/" target="_blank">New America</a>
           <a href="https://www.edweek.org/leadership/paraprofessionals-as-the-backbones-of-the-classroom-they-get-low-pay-little-support/2022/06" target="_blank">Education Week</a>
