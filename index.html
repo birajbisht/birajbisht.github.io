@@ -123,16 +123,19 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 2.5rem;
+      gap: 2rem;
     }
     .hero-headline { flex: 1; min-width: 0; }
     .hero-photo {
       flex-shrink: 0;
       display: block;
-      width: 110px;
-      height: 138px;
+      width: 158px;
+      height: 198px;
+      padding: 4px;
       object-fit: cover;
       border-radius: 4px;
+      border: 1px solid var(--rule);
+      background: #fbfaf7;
       opacity: 0;
       animation: fadeUp 0.7s 0.25s forwards;
     }
@@ -282,7 +285,7 @@
 
     @media (max-width: 600px) {
       .hero-top { flex-direction: column-reverse; align-items: flex-start; gap: 1.6rem; }
-      .hero-photo { width: 94px; height: 118px; }
+      .hero-photo { width: 126px; height: 158px; }
       nav .page { flex-wrap: wrap; row-gap: 0.45rem; }
       .nav-links { width: 100%; flex-wrap: wrap; gap: 0.45rem 1.1rem; }
       .nav-links a { font-size: 0.66rem; }
@@ -306,9 +309,9 @@
 
   <div class="page">
     <header id="top">
+      <p class="eyebrow">Doctoral Candidate · University of California, Irvine</p>
       <div class="hero-top">
         <div class="hero-headline">
-          <p class="eyebrow">Doctoral Candidate · University of California, Irvine</p>
           <h1>Biraj Bisht<span class="hero-email">biraj.bisht@uci.edu</span></h1>
       <p class="hero-desc">
         I am a Ph.D. candidate in Education at the University of California, Irvine, and a
@@ -331,7 +334,7 @@
           <a href="https://scholar.google.com/citations?user=UEHGcQoAAAAJ" target="_blank">Google Scholar</a>
         </div>
         </div>
-        <img class="hero-photo" src="bisht_photo.jpg" width="110" height="138"
+        <img class="hero-photo" src="bisht_photo.jpg" width="158" height="198"
              alt="Portrait of Biraj Bisht">
       </div>
     </header>
