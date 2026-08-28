@@ -31,7 +31,7 @@
     }
 
     .page {
-      max-width: 780px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -102,7 +102,7 @@
     .hero-desc {
       font-size: 1.15rem;
       color: var(--ink-light);
-      max-width: 660px;
+      max-width: 760px;
       line-height: 1.75;
       margin-bottom: 1.2rem;
       opacity: 0;
@@ -130,17 +130,25 @@
       opacity: 0;
       animation: fadeUp 0.7s 0.25s forwards;
     }
-    .hero-links {
-      margin-top: 2.2rem;
+    .hero-aside {
+      flex-shrink: 0;
       display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.3rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
       opacity: 0;
       animation: fadeUp 0.7s 0.45s forwards;
     }
     .hero-links a {
       font-family: 'Archivo Narrow', Arial, sans-serif;
       font-size: 0.72rem;
+      white-space: nowrap;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink-light);
@@ -275,8 +283,11 @@
     }
 
     @media (max-width: 600px) {
-      .hero-top { flex-direction: column-reverse; align-items: flex-start; gap: 1.6rem; }
-      .hero-photo { width: 126px; height: 158px; }
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 1.6rem; }
+      .hero-aside { display: contents; }
+      .hero-photo { width: 126px; height: 158px; order: 1; }
+      .hero-headline { order: 2; }
+      .hero-links { order: 3; flex-direction: row; flex-wrap: wrap; gap: 0.6rem 1.2rem; }
       nav .page { flex-wrap: wrap; row-gap: 0.45rem; }
       .nav-links { width: 100%; flex-wrap: wrap; gap: 0.45rem 1.1rem; }
       .nav-links a { font-size: 0.66rem; }
@@ -320,14 +331,16 @@
         Journal</em> and <em>Educational Researcher</em>, and has been featured by media outlets including
         the Hechinger Report, Brookings, and Education Week. Previously, I was a Research Analyst at the Annenberg Institute at Brown University, where I also completed my MA in Urban Education Policy. I received my BS in Economics from the University of Oregon Clark Honors College.
       </p>
-        <div class="hero-links">
-          <a href="bisht_cv.pdf" target="_blank">CV (PDF)</a>
-          <a href="https://scholar.google.com/citations?user=UEHGcQoAAAAJ" target="_blank">Google Scholar</a>
-          <a href="mailto:biraj.bisht@uci.edu">biraj.bisht@uci.edu</a>
         </div>
+        <div class="hero-aside">
+          <img class="hero-photo" src="bisht_photo.jpg" width="158" height="198"
+               alt="Portrait of Biraj Bisht">
+          <div class="hero-links">
+            <a href="bisht_cv.pdf" target="_blank">CV (PDF)</a>
+            <a href="https://scholar.google.com/citations?user=UEHGcQoAAAAJ" target="_blank">Google Scholar</a>
+            <a href="mailto:biraj.bisht@uci.edu">biraj.bisht@uci.edu</a>
+          </div>
         </div>
-        <img class="hero-photo" src="bisht_photo.jpg" width="158" height="198"
-             alt="Portrait of Biraj Bisht">
       </div>
     </header>
   </div>
